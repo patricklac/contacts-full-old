@@ -8,8 +8,8 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: contacts
-      MYSQL_USER: user
-      MYSQL_PASSWORD: userpw
+      MYSQL_USER: adm
+      MYSQL_PASSWORD: adm
       MYSQL_ROOT_PASSWORD: adminpw
     ports:
      - "3306:3306"

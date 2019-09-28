@@ -1,5 +1,8 @@
-DROP SCHEMA IF EXISTS contacts;
-CREATE SCHEMA contacts;
+DROP database IF EXISTS contacts;
+CREATE database contacts;
+create user 'adm'@'localhost' identified by 'adm';
+grant all privileges on contacts.* TO 'adm'@'localhost';
+
 USE contacts;
 
 CREATE TABLE contacts (

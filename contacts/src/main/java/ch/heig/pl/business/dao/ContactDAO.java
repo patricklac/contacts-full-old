@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 @Stateless
 public class ContactDAO {
 
-    @Resource(lookup = "java:/jdbc/contacts")
+    @Resource(lookup = "jdbc/ContactsDS")
     private DataSource dataSource;
 
     public List<Contact> getContacts() {

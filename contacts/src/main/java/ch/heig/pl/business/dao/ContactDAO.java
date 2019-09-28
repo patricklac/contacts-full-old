@@ -44,7 +44,7 @@ public class ContactDAO {
         try {
             Connection connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement
-                    ("insert into CONTACTS (nom,telephone) values (?,?)");
+                    ("insert into contacts (nom,telephone) values (?,?)");
             pstmt.setString(1,contact.getNom());
             pstmt.setInt(2,contact.getTelephone());
             pstmt.executeUpdate();

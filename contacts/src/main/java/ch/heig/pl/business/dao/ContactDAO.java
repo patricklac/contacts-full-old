@@ -34,6 +34,7 @@ public class ContactDAO {
                 contacts.add(new Contact(nom, telephone));
             }
             pstmt.close();
+            connection.close();
         } catch (SQLException e) {
             Logger.getLogger(ContactDAO.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -48,6 +49,8 @@ public class ContactDAO {
             pstmt.setString(1,contact.getNom());
             pstmt.setInt(2,contact.getTelephone());
             pstmt.executeUpdate();
+            pstmt.close();
+            connection.close();
         } catch (SQLException e) {
             Logger.getLogger(ContactDAO.class.getName()).log(Level.SEVERE, null, e);
         }

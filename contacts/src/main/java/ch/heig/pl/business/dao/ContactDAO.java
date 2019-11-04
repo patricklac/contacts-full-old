@@ -24,17 +24,18 @@ public class ContactDAO {
 
     public List<Contact> getContacts() {
         List<Contact> contacts = new ArrayList<>();
-        try {
-            Connection connection = dataSource.getConnection();
-            PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM contacts");
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM contacts");){
+//            Connection connection = dataSource.getConnection();
+//            PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM contacts");
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 String nom = rs.getString("nom");
                 int telephone = rs.getInt("telephone");
                 contacts.add(new Contact(nom, telephone));
             }
-            pstmt.close();
-            connection.close();
+//            pstmt.close();
+//            connection.close();
         } catch (SQLException e) {
             Logger.getLogger(ContactDAO.class.getName()).log(Level.SEVERE, null, e);
         }

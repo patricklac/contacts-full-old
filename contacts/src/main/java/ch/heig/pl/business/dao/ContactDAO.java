@@ -43,15 +43,15 @@ public class ContactDAO {
     }
 
     public void add(Contact contact) {
-        try {
+        try (
             Connection connection = dataSource.getConnection();
             PreparedStatement pstmt = connection.prepareStatement
-                    ("insert into contacts (nom,telephone) values (?,?)");
+                    ("insert into contacts (nom,telephone) values (?,?)");){
             pstmt.setString(1,contact.getNom());
             pstmt.setInt(2,contact.getTelephone());
             pstmt.executeUpdate();
-            pstmt.close();
-            connection.close();
+//            pstmt.close();
+//            connection.close();
         } catch (SQLException e) {
             Logger.getLogger(ContactDAO.class.getName()).log(Level.SEVERE, null, e);
         }
